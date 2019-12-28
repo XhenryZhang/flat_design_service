@@ -1,0 +1,105 @@
+/* big tablets to 1200px (widths smaller than the 1140px row) */
+@media only screen and (max-width: 1200px) {
+    .hero-text-box {
+        /* textbox within header will be absolutely positioned */
+        width: 100%; /* if width is fixed width (in pixels), then text will go off screen when screen size goes below 1140px*/
+        padding: 0 2%;
+    }
+    
+    .row { padding: 0 2%; } /* for all the rows on the screen */
+    .city-feature { font-size: 97%; }
+    .plan-box ul li { font-size: 92%; }
+}
+
+/* set the margins and paddings in pixels?
+/* small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1023px) {
+    body { font-size: 17px; }
+    section {
+        padding: 60px 0; /* make whitespace smaller between sections */
+    }
+    
+    .long-copy {
+        line-height: 145%; /* height reserved for each line of text, between 120% and 145% */
+        /* also creates a tiny margin below last line of text */
+        width: 80%; /* percentage of it's container, the row */
+        margin-left: 10%; /* centers text within it's row, by having margin be 10 percent of it's container's width */
+    }
+    
+    .steps-box:first-child { margin-top: 10px; }
+    .steps-box:last-child { margin-top: 25px; }
+    .works-step { margin-bottom: 40px; }
+    .works-step:last-of-type { margin-bottom: 65px; }
+    
+    .app-screen { width: 45%; }
+    .icon-small {
+        width: 17px;
+        margin-right: 5px;
+    }
+    
+    .city-feature { font-size: 90%; }
+    
+    .plan-box {
+        width: 100%;
+        margin-left: 0%;
+    }
+    
+    .plan-price { font-size: 250%; }
+    .contact-form { width: 80%; }
+}
+
+/* small phones to small tablets: 481 to 767px */
+@media only screen and (max-width: 767px) {
+    body { font-size: 18px; }
+    section { padding: 20px 0; }
+    
+    .row,
+    .hero-text-box { padding: 0 4%; }
+    
+    .col { 
+        width: 100%; /* column will be 100% size of the row it is in */
+        margin: 0 0 4% 0; /* fix slight offset error */
+    } /* columns will no longer be side-by-side */
+    
+    .main-nav { display: none; } /* hides navigation bar (ul class) */
+    
+    h1 { font-size: 180%; }
+    h2 { font-size: 150%; }
+    
+    .long-copy {
+        width: 100%;
+        margin-left: 0%;
+    }
+    
+    .works-step { margin-bottom: 20px; }
+    .works-step:last-of-type { margin-bottom: 25px; }
+    
+    .works-step div {
+        height: 40px;
+        width: 40px; /* make circle smaller */
+        font-size: 120%;
+        margin-right: 15px;
+        padding: 7px;
+    }
+    
+    .app-screen { width: 40%; }
+    .steps-box:first-child { 
+        text-align: center;
+        margin-left: 0%;
+    }
+    
+    /* testimonials */
+    blockquote {
+        margin-bottom: -5px;
+    }
+    
+    cite {
+        margin-top: 20px;
+    }
+}
+
+/* small phones: 0 to 480px wide */
+@media only screen and (max-width: 480px) {
+    section { padding: 25px 0; }
+    .contact-form { width: 100%; }
+}

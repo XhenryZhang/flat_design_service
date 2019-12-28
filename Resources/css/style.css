@@ -1,0 +1,658 @@
+/* ---------------------------------------------------------------------- */
+/* BASIC SETUP */
+/* ---------------------------------------------------------------------- */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #fff;
+    color: #444; /* font-color */
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300; /* don't know what this does yet */
+    font-size: 20px; /* overall font size of project */
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+/* class clears the float after an element */
+.clearfix {zoom: 1}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+/* ---------------------------------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* ---------------------------------------------------------------------- */
+
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto; /* top and bottom are 0, left and right are auto */
+}
+
+/* padding is margin inside a box */
+section {
+    padding: 80px 0;
+}
+
+.box {
+    padding: 1%;
+}
+
+/* ----HEADINGS---- */
+h1,
+h2,
+h3 {
+    font-weight: 300; /* usually h1 elements come with bold formatting we want it to be thinner */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 240%; /* double the html (global) font size */
+    word-spacing: 4px;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px; /* margin between h2/h2:after and whatever on the bottom */
+                        /* after the divider */
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+
+/* website content just using CSS */
+/* after - stuff that appears after h2 */
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: #e67e22;
+    content: ""; /* content centered as long as content width < width */
+    width: 100px;
+    margin: 0 auto; /* as long as anything in px is in left/right, will appear centered */
+    margin-top: 30px; /* margin between h2:after and h2 */
+    margin-bottom: 0px; /* overwritten by margin-bottom of h2 */
+}
+
+/* ----PARAGRAPHS ----- */
+.long-copy {
+    line-height: 145%; /* height reserved for each line of text, between 120 and 145% */
+    /* also creates a tiny margin below last line of text */
+    width: 66%; /* of it's container, the row */
+    margin-left: 12%; /* text isn't centered, offset */
+}
+
+.box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+/* -----ICONS----- */
+.icon-big {
+    font-size: 300%;
+    display: block;
+    color: #e67e22;
+    margin-bottom: 10px; /* inline elements cannot have margins */
+                         /* block elements can have padding and margins */
+}
+
+.icon-small {
+    display: inline-block;
+    width: 30px; /* block elements have width */
+    text-align: center;
+    color: #e67e22;
+    font-size: 120%;
+    line-height: 120%;
+    margin-right: 10px;
+    
+    /* secrets to align text and icons */
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+/* ----LINKS---- */
+a:link,
+a:visited {
+    color: #e67e22;
+    text-decoration: none;
+    border-bottom: 1px solid #e67e22;
+    padding-bottom: 1px;
+    -webkit-transition: border-bottom 0.2s, color 0.2s;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+    color: #444;
+    border-bottom: 1px solid transparent;
+}
+
+/* visited links should look just like normal buttons */
+/* ----BUTTONS---- */
+.btn:link,
+.btn:visited,
+input[type=submit] {
+    /* block and inline elements */
+    /* there's also inline-block elements, inline element with padding and margin */
+    /* doesn't force linebreak, but can give it format */
+    display: inline-block; /* the two buttons are on the same line */
+    padding: 10px 30px; /* top/bot left/right */
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    /* why is it in the link/visted section? */
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+    background-color: #e67e22;
+    border: 1px solid #e67e22;
+    color: #fff;
+    margin-right: 15px; /* margin between the buttons */
+}
+
+/* hover state, and click state */
+.btn-ghost:link,
+.btn-ghost:visited {
+    border: 1px solid #e67e22;
+    /* height/width = content + padding + border, that's why buttons aren't the same size */
+    color: #e67e22;
+}
+
+/* ----HOVER BUTTONS---- */
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #cf6d17;
+    /*transition: background-color 0.2s, border 0.2s, color 0.2s;*/
+}
+
+/* for border and text color */
+.btn-full:hover,
+.btn-full:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    border: 1px solid #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    border: 1px solid #cf6d17;
+    color: #fff;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* HEADERS */
+/* ---------------------------------------------------------------------- */
+
+
+header {
+    /* gradient goes from same color to same color, so acts as overlay */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/hero.jpg");
+    /* one copy of the background image will cover the element and will always be centered in the element */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* height of header is 100 percent of viewport, or image won't show */
+    /* height of header is exactly the user's screen size */
+    background-attachment: fixed;
+}
+
+/* everything in the text box */
+.hero-text-box {
+    position: absolute;
+    /* textbox within header will be absolutely positioned */
+    width: 1140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* translate element half of it's width/height up and to the left */
+    /* note that text is off center since it doesn't cover the entire horizontal distance of the text box */
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left; /* image should stick to the left side */
+    margin-top: 20px;
+}
+
+/* logo-black is hidden normally, unless it is part of sticky class */
+.logo-black {
+    display: none;
+    height: 50px;
+    width: auto;
+    float: left;
+    margin: 5px 0;
+}
+
+/* unordered list */
+.main-nav {
+    float: right;
+    list-style: none; /* get rid of bullet points */
+    margin-top: 50px;
+    height: auto;
+}
+
+.main-nav li {
+    display: inline-block; /* each thing is individual block, but placed inline */
+    margin-left: 40px; /* separate the bar elements */
+    /* padding here would create padding above and below the text element/border
+    padding-top: 8px;
+    padding-bottom: 8px; */
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #fff; /* text is white */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%; /* text is 90 percent of size specified in the html bracket */
+    border-bottom: 2px solid transparent; /* border is transparent when mouse isn't over it */
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22;
+    padding-bottom: 8px;
+}
+
+/* sticky navi */
+/* nav is the entire bar/spanning entire window width */
+/* row within nav tag is just the row of width 1140px containing elements up to the last nav element */
+.sticky {
+    position: fixed; /* navigation stays at same point regardless of our scrolling */
+    top: 0; /* top and left positions of the navigation bar */
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 4px #efefef; /* left/right top/bottom blur */
+}
+
+.main-nav { margin-top: 18px; }
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+    padding: 17px 0; /* for bordering purposes (orange border line) */
+    color: #555;
+}
+
+.sticky .logo { display: none; }
+.sticky .logo-black { display: block; }
+
+
+/* ---------------------------------------------------------------------- */
+/* FEATURES */
+/* ---------------------------------------------------------------------- */
+
+.section-features .long-copy {
+    margin-bottom: 30px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* MEALS */
+/* ---------------------------------------------------------------------- */
+
+.section-meals {
+    padding: 0px;
+}
+
+.meals-showcase { /* ul class */
+    list-style: none;
+    width: 100%; /* spans 100% of screen width */
+}
+
+.meals-showcase li {
+    display: block; /* each element is own container */
+    float: left; /* images go from left to right, if there's space on screen */
+    width: 25%; /* width is 25 percent of screen */
+}
+
+.meal-photo {
+    width: 100%; /* same width as parent, meals showcase li */
+    margin: 0px;
+    overflow: hidden; /* container for the photo doesn't show overflow of photo */
+    background-color: #000;
+}
+
+.meal-photo img {
+    opacity: 0.7;
+    width: 100%; /* image is exactly as wide as its container */
+    height: auto;
+    transform: scale(1.15); /* make image bigger */
+    transition: transform 0.5s, opacity 0.5s; /* put transition details into the original state */
+}
+
+.meal-photo img:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* ---------------------------------------------------------------------- */
+/* HOW IT WORKS */
+/* ---------------------------------------------------------------------- */
+
+
+.section-steps {
+    background-color: #d8d8d8;
+}
+
+.steps-box:first-child {
+    text-align: right; /* text align property works for all inline block elements, including images */
+    padding-right: 3%; /* 3 percent because responsive web-design */
+    /* fluid: layout defined in percentages instead of pixels */
+    margin-top: 30px;
+    margin-left: -10%;
+}
+
+.steps-box:last-child {
+    padding-left: 3%;
+    margin-top: 70px;
+}
+
+.app-screen {
+    width: 40%; /* 40% width of parent container */
+}
+
+.works-step {
+    margin-bottom: 50px; 
+}
+
+/* this div doesn't contain children */
+.works-step:last-of-type {
+    margin-bottom: 80px;
+}
+
+.works-step div {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    border-radius: 50%;
+    text-align: center;
+    height: 55px;
+    width: 55px; /* to make border larger purposes */
+    padding: 5px; /* for centering purposes */
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;
+    display: inline-block;
+}
+
+.btn-app:link,
+.btn-app:visited {
+    border: 0;
+}
+
+.btn-app img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* CITIES/LOCATIONS */
+/* ---------------------------------------------------------------------- */
+
+
+.box img {
+    width: 100%; /* width is 100 percent of box */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.city-feature {
+    margin-bottom: 5px;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* TESTIMONIALS */
+/* ---------------------------------------------------------------------- */
+
+
+.section-testimonials {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg);
+    background-size: cover;
+    /* color of the text */
+    color: #fff;
+    background-attachment: fixed;
+}
+
+blockquote {
+    padding: 2%;
+    font-style: italic; /* include webfont from google */
+    line-height: 145%;
+    position: relative;
+    margin-top: 40px;
+}
+
+cite {
+    font-size: 90%;
+    margin-top: 25px;
+    display: block; /* only when display is block can you use margin-top */
+}
+
+/* adding content with css, similar to adding the orange line after h2 */
+blockquote:before {
+    content: "\201C"; /* code for quotation mark */
+    font-size: 500%; /* size of quotation mark */
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+cite img {
+    height: 45px;
+    border-radius: 50%; /* make the image circular */
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* SIGN UP */
+/* ---------------------------------------------------------------------- */
+
+
+.section-plans {
+    background-color: #d8d8d8;
+}
+
+.plan-box {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    margin-left: 5%;
+    box-shadow: 0 2px 2px #efefef;
+}
+
+.plan-box div {
+    padding: 15px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.plan-box div:first-child {
+    background-color: #f0f0f0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px; /* we need to restate these values or background-color will take up entire div */
+}
+
+.plan-box div:last-child {
+    text-align: center; /* centers the button within it's div */
+    border 0;
+}
+
+.plan-price {
+    font-size: 300%;
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: #e67e22;
+}
+
+.plan-price span {
+    font-size: 30%;
+    font-weight: 300;
+}
+
+.plan-price-meal {
+    font-size: 80%;
+}
+
+.plan-box ul {
+    list-style: none;
+}
+
+.plan-box ul li {
+    padding: 5px 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/* FORM */
+/* ---------------------------------------------------------------------- */
+
+
+.contact-form {
+    width: 60%; /* width is 60 percent of 1140px; */
+    margin: 0 auto; /* center */
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+*:focus {outline: none;}
+
+/* ---------------------------------------------------------------------- */
+/* FOOTER */
+/* ---------------------------------------------------------------------- */
+
+
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+}
+
+.footer-nav {
+    list-style: none;
+    float: left;
+}
+
+.social-links {
+    list-style: none;
+    float: right;
+}
+
+/* make links and icons side-by-side */
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* li deals with margins */
+.footer-nav li:last-child,
+.social-links li:last-child {
+    margin-right: 0px;
+}
+
+/* li a deals with things inside the social links */
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+    border: 0;
+    text-decoration: none;
+    color: #888;
+    transition: color 0.2s;
+}
+
+/* a tag whenever u want to modify the links */
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+    font-size: 160%;
+}
+
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-instagram {
+    transition: color 0.2s;
+}
+
+.ion-social-facebook:hover {
+    color: #3b5998;
+}
+
+.ion-social-twitter:hover {
+    color: #00aced;
+}
+
+.ion-social-googleplus:hover {
+    color: #dd4b39;
+}
+
+.ion-social-instagram:hover {
+    color: #517fa4;
+}
+
+footer p {
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+
+/* there's no padding between the section title and the images section above it */
+/* the steps section starts where the meal section should start */
+/* padding is not used */
+/* section meals is 0 pixels high, as we didn't clear the floats */
+/* when you define some floats, you have to clear the floats, and we didn't clear it */
+
+/*
+Fluid Grid: all elements sized in relative units
+Flexible Images: are also sized in relative units
+Media Queries: specify different CSS rules for diff. browser widths
+*/
