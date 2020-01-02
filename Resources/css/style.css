@@ -234,6 +234,15 @@ header {
     width: auto;
     float: left; /* image should stick to the left side */
     margin-top: 20px;
+    
+    /* need both animation-name and animation-duration for animation to play */
+    
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    
+    /* opacity: 1; if we leave this out, opacity is set to 1 by default, our animation changes opacity at the 
+    beginning */
+    
 }
 
 /* logo-black is hidden normally, unless it is part of sticky class */
@@ -288,9 +297,10 @@ header {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.98);
     box-shadow: 0 2px 4px #efefef; /* left/right top/bottom blur */
+    z-index: 9999; /* z-index: vertical stacking of elements, 9999 is highest possible value */
 }
 
-.main-nav { margin-top: 18px; }
+.sticky .main-nav { margin-top: 18px; }
 
 .sticky .main-nav li a:link,
 .sticky .main-nav li a:visited {
@@ -643,7 +653,25 @@ footer p {
 }
 
 
+/* ---------------------------------------------------------------------- */
+/* ANIMATIONS (may include all elements on page) */
+/* ---------------------------------------------------------------------- */
 
+/* by default, the animations start opaque */
+/* when fadeIn class added, the animation will play automatically */
+.js--wp-1,
+.js--wp-2,
+.js--wp-3 {
+    opacity: 0;
+    animation-duration: 1s;
+}
+
+/* putting the two right next to each other means element needs to be a part of both classes */
+.js--wp-1.animated,
+.js--wp-2.animated,
+.js--wp-3.animated {
+    opacity: 1;
+}
 
 /* there's no padding between the section title and the images section above it */
 /* the steps section starts where the meal section should start */
@@ -652,7 +680,7 @@ footer p {
 /* when you define some floats, you have to clear the floats, and we didn't clear it */
 
 /*
-Fluid Grid: all elements sized in relative units
+Fluid Grid: all elements sized in relative units (margins/padding can be in pixels)
 Flexible Images: are also sized in relative units
 Media Queries: specify different CSS rules for diff. browser widths
 */

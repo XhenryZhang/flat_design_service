@@ -7,6 +7,7 @@
         <!--the relationship the linked resource has with the html document is that it's a stylesheet-->
         <link rel="stylesheet" type="text/css" href="Resources/css/style.css">
         <link rel="stylesheet" type="text/css" href="Resources/css/queries.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" type="text/css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
         <title>Omnifood Website</title> <!--tab title-->
@@ -14,16 +15,16 @@
     <body>
         <!--gives container a meaning, not just a div element, makes it available to search engines-->
         <header>
-            <nav class="sticky">
+            <nav>
                 <div class="row"> <!-- row contains the omnifood logo and nagivation text-->
                     <img src="Resources/img/logo-white.png" alt="Omnifood logo" class="logo">
                     <img src="Resources/img/logo.png" alt="Omnifood logo" class="logo-black">
                     <ul class="main-nav"> <!--unordered list-->
                         <!--links can also be images, by putting img tag within it-->
-                        <li><a href="#">Food delivery</a></li> <!--list element-->
-                        <li><a href="#">How it works</a></li> <!--list element-->
-                        <li><a href="#">Our cities</a></li> <!--list element-->
-                        <li><a href="#">Sign in</a></li> <!--list element-->
+                        <li><a href="#features">Food delivery</a></li> <!--list element-->
+                        <li><a href="#steps">How it works</a></li> <!--list element-->
+                        <li><a href="#cities">Our cities</a></li> <!--list element-->
+                        <li><a href="#signup">Sign up</a></li> <!--list element-->
                         <!--css modifying list elements vs. modifying contents inside list elements-->
                     </ul>
                 </div>
@@ -31,12 +32,13 @@
             <!--hero image = large bg. image-->
             <div class="hero-text-box">
                 <h1>Goodbye junk food.<br>Hello super healthy meals.</h1>
-                <a class="btn btn-full" href="#">I'm hungry</a>
-                <a class="btn btn-ghost" href="#">Show me more</a>
+                <a class="btn btn-full js--scroll-to-plans" href="#">I'm hungry</a>
+                <a class="btn btn-ghost js--scroll-to-start" href="#">Show me more</a>
             </div>
         </header>
         
-        <section class="section-features">
+        <!--clean separation between js and css-->
+        <section class="section-features js--section-features" id="features">
             <div class="row">
                 <h2>Get food fast &ndash; not fast food</h2> <!--html special characters start with &-->
                 <p class="long-copy">
@@ -45,7 +47,7 @@
             </div>
             
             <div class="row">
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-4 box js--wp-1">
                     <i class="ion-ios-infinite-outline icon-big"></i>
                     <h3>Up to 365 days/year</h3>
                     <p>
@@ -53,7 +55,7 @@
                     </p>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-4 box js--wp-1">
                     <i class="ion-social-bitcoin-outline icon-big">itcoin</i>
                     <h3>Ready in 20 minutes</h3>
                     <p>
@@ -61,7 +63,7 @@
                     </p>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-4 box js--wp-1">
                     <i class="ion-erlenmeyer-flask icon-big"></i>
                     <h3>100% organic</h3>
                     <p>
@@ -69,7 +71,7 @@
                     </p>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-4 box js--wp-1">
                     <i class="ion-ios-cart-outline icon-big"></i>
                     <h3>Order anything</h3>
                     <p>
@@ -79,7 +81,7 @@
             </div>
         </section>
         
-        <section class="section-meals">
+        <section class="section-meals" id="meals">
             <ul class="meals-showcase clearfix"> <!--clear-fix because lis have the float property-->
                 <li>
                     <figure class="meal-photo">
@@ -141,13 +143,13 @@
             </ul>
         </section>
         
-        <section class="section-steps">
+        <section class="section-steps" id="steps">
             <div class="row"> <!--section title-->
                 <h2>How it works &mdash; Simple as 1, 2, 3</h2>
             </div>
             
             <div class="row"> <!--section row, with 2 columns-->
-                <div class="col span-1-of-2 steps-box"> <!--first column with photo of iPhone-->
+                <div class="col span-1-of-2 steps-box js--wp-2"> <!--first column with photo of iPhone-->
                     <img src="Resources/img/app-iPhone.png" alt="Omnifood app on iPhone" class="app-screen">
                 </div>
                     
@@ -171,13 +173,13 @@
             </div>
         </section>
         
-        <section class="section-cities">
+        <section class="section-cities" id="cities">
             <div class="row">
                 <h2>We're currently in these cities</h2>
             </div>
             
             <div class="row">
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-4 box js--wp-3">
                     <img src="Resources/img/london.jpg" alt="Picture of London" class="location-image">
                     <h3>London</h3>
                     <div class="city-feature">
@@ -197,7 +199,7 @@
                     
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-4 box js--wp-3">
                     <img src="Resources/img/lisbon-3.jpg" alt="Picture of Lisbon" class="location-image">
                     <h3>Lisbon</h3>
                     <div class="city-feature">
@@ -216,7 +218,7 @@
                     </div>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-4 box js--wp-3">
                     <img src="Resources/img/san-francisco.jpg" alt="Picture of San Francisco" class="location-image">
                     <h3>San Francisco</h3>
                     <div class="city-feature">
@@ -235,7 +237,7 @@
                     </div>
                 </div>
                 
-                <div class="col span-1-of-4 box">
+                <div class="col span-1-of-4 box js--wp-3">
                     <img src="Resources/img/berlin.jpg" alt="Picture of Berlin" class="location-image">
                     <h3>Berlin</h3>
                     <div class="city-feature">
@@ -284,14 +286,14 @@
             </div>
         </section>
         
-        <section class="section-plans">
+        <section class="section-plans js--section-plans" id="signup">
             <div class="row">
                 <h2>Start eating healthy today</h2>
             </div>
             <div class="row">
                 <div class="col span-1-of-3">
                     <!--we need just the box to be white bg color-->
-                    <div class="plan-box">
+                    <div class="plan-box js--wp-4">
                         <div>
                             <h3>Premium</h3>
                             <p class="plan-price">$399 <span>per month</span></p>
@@ -356,7 +358,7 @@
             </div>
         </section>
         
-        <section class="section-form">
+        <section class="section-form" id="form">
             <div class="row">
                 <h2>We're happy to hear from you</h2>
             </div>
@@ -459,12 +461,15 @@
             </div>
         </footer>
     
-    <!--load js files after html loads-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/selectivizr@1.0.3/selectivizr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-    <script src="Resources/js/script.js"></script>
-    
+        <!--load js files after html loads-->
+        <!--import jquery, a javascript library designed to simplify things including CSS animation-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/selectivizr@1.0.3/selectivizr.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <!--for sticky navigation and animations activating when we scroll to a section-->
+        <script src="vendors/js/jquery.waypoints.min.js"></script>
+        <!--import our own scripts-->
+        <script src="Resources/js/script.js"></script>
     </body>
     
 </html>
