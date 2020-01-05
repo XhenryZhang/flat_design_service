@@ -29,6 +29,7 @@ body {
     height: 0;
     visibility: hidden;
 }
+
 /* ---------------------------------------------------------------------- */
 /* REUSABLE COMPONENTS */
 /* ---------------------------------------------------------------------- */
@@ -230,8 +231,8 @@ header {
 }
 
 .logo {
-    height: 100px;
     width: auto;
+    height: 100px;
     float: left; /* image should stick to the left side */
     margin-top: 20px;
     
@@ -242,7 +243,6 @@ header {
     
     /* opacity: 1; if we leave this out, opacity is set to 1 by default, our animation changes opacity at the 
     beginning */
-    
 }
 
 /* logo-black is hidden normally, unless it is part of sticky class */
@@ -285,6 +285,19 @@ header {
 .main-nav li a:active {
     border-bottom: 2px solid #e67e22;
     padding-bottom: 8px;
+}
+
+/* mobile navi */
+.mobile-nav-icon {
+    float: right; /* the button */
+    margin-top: 30px;
+    cursor: pointer; /* since mobile-nav-icon class doesn't specify href attribute, cursor needs to be set to pointer */
+    display: none;
+}
+
+.mobile-nav-icon i {
+    font-size: 200%; /* the icon */
+    color: #fff;
 }
 
 /* sticky navi */
@@ -430,8 +443,9 @@ header {
     margin-bottom: 15px;
 }
 
+
 .city-feature {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 
@@ -663,13 +677,14 @@ footer p {
 .js--wp-2,
 .js--wp-3 {
     opacity: 0;
-    animation-duration: 1s;
+    animation-duration: 1s; /* if we leave it out, will default to the animated class duration defined in animate.css */
 }
 
 /* putting the two right next to each other means element needs to be a part of both classes */
 .js--wp-1.animated,
 .js--wp-2.animated,
 .js--wp-3.animated {
+    /* animation-duration can also be put here */
     opacity: 1;
 }
 

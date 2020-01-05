@@ -19,7 +19,7 @@
                 <div class="row"> <!-- row contains the omnifood logo and nagivation text-->
                     <img src="Resources/img/logo-white.png" alt="Omnifood logo" class="logo">
                     <img src="Resources/img/logo.png" alt="Omnifood logo" class="logo-black">
-                    <ul class="main-nav"> <!--unordered list-->
+                    <ul class="main-nav js--main-nav"> <!--unordered list-->
                         <!--links can also be images, by putting img tag within it-->
                         <li><a href="#features">Food delivery</a></li> <!--list element-->
                         <li><a href="#steps">How it works</a></li> <!--list element-->
@@ -27,6 +27,7 @@
                         <li><a href="#signup">Sign up</a></li> <!--list element-->
                         <!--css modifying list elements vs. modifying contents inside list elements-->
                     </ul>
+                    <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
                 </div>
             </nav>
             <!--hero image = large bg. image-->
@@ -421,7 +422,7 @@
                     
                     <div class="row">
                         <div class="col span-1-of-3">
-                            <label>&nbsp;</label>
+                            <label>&nbsp;</label> <!--non-breaking space-->
                         </div>
                         <div class="col span-2-of-3">
                             <input type="submit" value="Send it!">

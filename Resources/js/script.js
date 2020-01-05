@@ -21,8 +21,8 @@ $(document).ready(function () {
             $('nav').addClass('fadeOut');
         }
     }, {
-        /* navigation shows up 40px before the section-features */
-        offset: '40px'
+        /* navigation shows up 60px before the section-features */
+        offset: '60px'
     });
     
     /* remove sticky from nav after it finishes fadeout animation */
@@ -91,12 +91,19 @@ $(document).ready(function () {
         if (direction == 'down') {
             $('.js--wp-1').removeClass('fadeOut');
             $('.js--wp-1').addClass('animated fadeIn');
-        }else {
+        }
+    }, {
+        offset: '70%'
+    });
+    
+    
+    $('.js--wp-1').waypoint(function(direction) {
+        if (direction == 'up') {
             $('.js--wp-1').addClass('fadeOut')
             $('.js--wp-1').removeClass('animated fadeIn');
         }
     }, {
-        offset: '50%'
+        offset: '120%'
     });
     
     /* how it works */
@@ -119,6 +126,41 @@ $(document).ready(function () {
         $('.js--wp-4').addClass('animated pulse');
     }, {
         offset: '50%'
+    });
+    
+    /* mobile nav */
+    /* js--nav-icon is the button */
+    $('.js--nav-icon').click(function () {
+        var nav = $('.js--main-nav');
+        var icon = $('.js--nav-icon i');
+        
+        nav.slideToggle(200); /* toggles visibility of the navigation bar */
+        
+        /* toggles icon between 3 bars and x */
+        if (icon.hasClass('ion-navicon-round')) {
+            icon.addClass('ion-close-round');
+            icon.removeClass('ion-navicon-round');
+        } else {
+            icon.addClass('ion-navicon-round');
+            icon.removeClass('ion-close-round');
+        }
+        
+        /* toggle back upon switching window size */
+    });
+    
+    $(window).resize(function () {
+        var nav = $('.js--main-nav');
+        var icon = $('.js--nav-icon i');
+        
+        /* makes nav bar appear even if it was hidden previously */
+        if ($(window).width() > 767) {
+            nav.slideDown(200);
+            icon.addClass('ion-navicon-round');
+            icon.removeClass('ion-close-round');
+        }else if ($(icon).hasClass('ion-navicon-round')){
+            nav.slideUp(200);
+        }
+        
     });
 });
 
