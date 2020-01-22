@@ -1,0 +1,14 @@
+Resources:
+
+1. favicons: https://realfavicongenerator.net/
+2. flat design: https://hackdesign.org/lessons
+3. google fonts: https://www.google.com/fonts
+4. font combos: http://fontpair.co/ 
+5. Cool Flat UI colors: http://ﬂatuicolors.com/
+6. icons: http://ionicons.com/
+7. cool websites: http://www.siteinspire.com/
+8. responsive grid system: http://www.responsivegridsystem.com/
+9. animations: http://daneden.github.io/animate.css/
+10. waypoints library (jquery): http://imakewebthings.com/waypoints/
+11. normalize (css): 
+12. responsive design (css): http://www.responsivegridsystem.com/
